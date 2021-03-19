@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .3);
+  padding-top: 50px;
+  &-box {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  &-header, &-body {
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  &-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &-close {
+    padding: 4px;
+    height: 16px;
+    width: 16px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      height: 12px;
+      width: 12px;
+      fill: #535353;
+    }
+  }
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+}
+
+.devKey {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all .2s ease-in-out;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  span {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  &:hover {
+    background-color: #5c70ff;
+    color: #fff;
+    svg {
+      fill: #fff;
+    }
+  }
+  svg {
+    transition: all .2s ease-in-out;
+  }
+}
+
+.iconKey {
+  margin-right: 8px;
+}
+
+.search-box {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  h1 {
+    text-align: center;
+  }
+}
+
+.alert {
+  h3 {
+    text-align: center;
+    font-weight: 400;
+    color: #e63b1d;
+  }
+}
+
+.input-group {
+  display: flex;
+  width: auto;
+  input, button {
+    font-size: 16px;
+    padding: 16px 24px;
+    border: 1px solid transparent;
+  }
+  input {
+    margin-right: -1px;
+    border-radius: 4px 0 0 4px;
+    border-color: #a1a1a1;
+    background-color: #f7f7f7;
+    max-width: 200px;
+    &:focus {
+      border-color: #5c70ff;
+      outline: none;
+      box-shadow: 0 0 0 1px #5c70ff;
+    }
+  }
+  button {
+    border-radius: 0 4px 4px 0;
+    background-color: #5c70ff;
+    color: #fff;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    &:hover {
+      color: #fff;
+      background-color: #3f55fc;
+    }
+  }
+}
+
+.imageDiv {
+  display: grid;
+  grid-gap: 16px;
+  padding: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 300px;
+}
+
+.imageBox {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttonDownload {
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  background-color: #5c70ff;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M25.4618 19.105V25.953H4.51477V19.105H0.48877V27.966C0.48877 29.077 1.38877 29.978 2.50477 29.978H27.4718C28.5868 29.978 29.4878 29.078 29.4878 27.966V19.105H25.4618Z' fill='white'/%3E%3Cpath d='M14.6196 18.426L8.85556 11.461C8.85556 11.461 7.97856 10.633 8.92956 10.633C9.88056 10.633 12.1776 10.633 12.1776 10.633C12.1776 10.633 12.1776 10.076 12.1776 9.217C12.1776 6.768 12.1776 2.311 12.1776 0.494C12.1776 0.494 12.0486 0 12.7926 0C13.5426 0 16.8276 0 17.3646 0C17.9006 0 17.8886 0.416 17.8886 0.416C17.8886 2.178 17.8886 6.789 17.8886 9.158C17.8886 9.926 17.8886 10.424 17.8886 10.424C17.8886 10.424 19.7306 10.424 20.8866 10.424C22.0406 10.424 21.1716 11.291 21.1716 11.291C21.1716 11.291 16.2676 17.801 15.5836 18.484C15.0916 18.979 14.6196 18.426 14.6196 18.426Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='29.978' height='29.978' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  background-position: center center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 2;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  border-radius: 4px;
+  &:hover {
+    background-color: #3f55fc;
+  }
+}

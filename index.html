@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsplash Api</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="devKey" onclick="openModal()">
+      <div class="iconKey">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 2c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6zm0-2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm-5.405 16.4l-1.472 1.6h-3.123v2h-2v2h-2v-2.179l5.903-5.976c-.404-.559-.754-1.158-1.038-1.795l-6.865 6.95v5h6v-2h2v-2h2l2.451-2.663c-.655-.249-1.276-.562-1.856-.937zm7.405-11.4c.551 0 1 .449 1 1s-.449 1-1 1-1-.449-1-1 .449-1 1-1zm0-1c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"/></svg>
+      </div>
+      <span>Dev Key</span>
+    </div>
+    <div class="modal" style="display: none;">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div class="modal-close" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+          </div>
+        </div>
+        <div class="modal-body">
+          <input class="input" id="clientId" type="text" placeholder="Paste key Unsplash">
+        </div>
+      </div>
+    </div>
+    <div class="search-box">
+      <h1>Search image on Unplash</h1>
+      <div class="input-group">
+        <input type="text" id="search" placeholder="Search photos">
+        <button onclick="searchPhotos()">Search</button>
+      </div>
+    </div>
+    <div id="alert" class="alert"></div>
+    <div class="imageDiv" id="image_div"></div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="scripts.js"></script>
+</html>
