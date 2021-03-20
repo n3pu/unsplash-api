@@ -1,10 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@mixin sm {
+  @media (min-width: 576px) { @content; }
+}
+
+@mixin md {
+  @media (min-width: 768px) { @content; }
+}
+
+@mixin lg {
+  @media (min-width: 992px) { @content; }
+}
+
+@mixin xl {
+  @media (min-width: 1200px) { @content; }
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #5c70ff;
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  border: 1px solid #5c70ff;
+  &:hover {
+    color: #fff;
+    background-color: #3f55fc;
+  }
 }
 
 .modal {
@@ -14,7 +44,10 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, .3);
-  padding-top: 50px;
+  padding-top: 100px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
   &-box {
     background-color: #fff;
     width: 100%;
@@ -24,8 +57,8 @@ body {
     overflow: hidden;
     border-radius: 8px;
   }
-  &-header, &-body {
-    padding: 16px;
+  &-header, &-body, &-footer{
+    padding: 8px 16px;
     box-sizing: border-box;
   }
   &-header {
@@ -47,6 +80,10 @@ body {
       width: 12px;
       fill: #535353;
     }
+  }
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -95,8 +132,11 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 24px;
+  padding: 40px 24px;
   box-sizing: border-box;
+  @include md {
+    padding: 24px;
+  }
   h1 {
     text-align: center;
   }
@@ -124,6 +164,7 @@ body {
     border-color: #a1a1a1;
     background-color: #f7f7f7;
     max-width: 200px;
+    width: 100%;
     &:focus {
       border-color: #5c70ff;
       outline: none;
@@ -140,6 +181,11 @@ body {
       color: #fff;
       background-color: #3f55fc;
     }
+    &:focus {
+      border-color: #5c70ff;
+      outline: none;
+      box-shadow: 0 0 0 1px #5c70ff;
+    }
   }
 }
 
@@ -147,8 +193,14 @@ body {
   display: grid;
   grid-gap: 16px;
   padding: 16px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-auto-rows: 300px;
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .imageBox {

@@ -8,29 +8,36 @@ function searchPhotos() {
   let alertBox = document.getElementById('alert');
   alertBox.innerHTML = '';
 
-  axios.get(url+query+"&client_id="+clientId)
-    .then(response => {
-      for (let i = 0; i < response.data.results.length; i++) {
-        let imageBox = document.createElement('div');
-        imageBox.className = 'imageBox';
-        let imageElement = document.createElement('img');
-        let buttonDownload = document.createElement('a');
-        buttonDownload.className = 'buttonDownload';
-        buttonDownload.href = response.data.results[i].links.download;
-        buttonDownload.setAttribute('target', '_blank');
-        imageElement.src = response.data.results[i].urls.regular;
-        imageElement.className = "image";
-        imageBox.append(buttonDownload);
-        imageBox.append(imageElement);
-        imageDiv.append(imageBox);
-      }
-    })
-    .catch(function(error) {
-      let alertEl = document.createElement('h3');
-      alertEl.textContent = 'Image not found. Try another term';
+  if(clientId) {
+    axios.get(url+query+"&client_id="+clientId)
+      .then(response => {
+        for (let i = 0; i < response.data.results.length; i++) {
+          let imageBox = document.createElement('div');
+          imageBox.className = 'imageBox';
+          let imageElement = document.createElement('img');
+          let buttonDownload = document.createElement('a');
+          buttonDownload.className = 'buttonDownload';
+          buttonDownload.href = response.data.results[i].links.download;
+          buttonDownload.setAttribute('target', '_blank');
+          imageElement.src = response.data.results[i].urls.regular;
+          imageElement.className = "image";
+          imageElement.setAttribute('loading', 'lazy');
+          imageBox.append(buttonDownload);
+          imageBox.append(imageElement);
+          imageDiv.append(imageBox);
+        }
+      })
+      .catch(function(error) {
+        alertBox.innerHTML = '';
+        let alertEl = document.createElement('h3');
+        alertEl.textContent = 'Image not found. Try another term or check the API key';
+  
+        alertBox.append(alertEl);
+      });
+  } else {
+    openModal();
+  }
 
-      alertBox.append(alertEl);
-    });
 }
 
 document.getElementById('search').onkeypress = function(e){
